@@ -3,6 +3,7 @@ const express=require('express');
 const morgan=require('morgan');
 const mongoose=require('mongoose');
 const app=express();
+const port=process.env.PORT || 3000;
 
 const { render } = require('ejs');
 
@@ -10,7 +11,7 @@ const blogRoutes=require('./routes/blogRoutes');
 
 const dbURI='mongodb+srv://b_s:test1234@node-course.ni7mc.mongodb.net/node-tuts?retryWrites=true&w=majority';
 mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true})
-    .then((result)=>app.listen(3000))
+    .then((result)=>app.listen(port))
     .catch((err)=>console.log(err));
 
 
